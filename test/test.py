@@ -19,8 +19,8 @@ async def collect_samples(dut, count):
         await RisingEdge(dut.clk) # wait for first clock edge
         try:
             yield (i,
-                   dut.tt_um_proppy_megabytebeat0.pcm[0].value.to_unsigned(),
-                   dut.tt_um_proppy_megabytebeat0.pcm[1].value.to_unsigned())
+                   dut.tt_um_proppy_megabytebeat0.bytebeat0.bytebeat_the42melody__output_s.value.to_unsigned(),
+                   dut.tt_um_proppy_megabytebeat0.bytebeat7.bytebeat_sierpinskiharmony__output_s.value.to_unsigned())
         except ValueError:
             pass  # ignore invalid samples
 

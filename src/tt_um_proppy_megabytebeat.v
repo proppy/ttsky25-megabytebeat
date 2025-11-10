@@ -81,16 +81,6 @@ module tt_um_proppy_megabytebeat (
    assign uio_oe = 8'b00000000;  // set uio as inputs.
    assign uio_out = 8'b00000000; // unused by keep yosys happy.
 
-   generate
-      for (genvar i = i; i < 7; i++) begin
-	 assign a_rdy[i] = 1'b0;
-	 assign b_rdy[i] = 1'b0;
-	 assign c_rdy[i] = 1'b0;
-	 assign d_rdy[i] = 1'b0;
-	 assign pcm_vld[i] = 1'b0;
-      end
-   endgenerate
-
    wire _unused = &{ena, 1'b0};
 
 endmodule

@@ -9,10 +9,10 @@ project:
   tiles: "1x1"
   top_module:  "tt_um_proppy_megabytebeat"
   source_files:
-    - "bytebeat_the42melody.v"
-    - "bytebeat_sierpinskiharmony.v"    
     - "tt_um_proppy_megabytebeat.v"
     - "pwm_audio.v"
+    - "bytebeat_the42melody.v"
+    - "bytebeat_sierpinskiharmony.v"
 
 pinout:
   # Inputs

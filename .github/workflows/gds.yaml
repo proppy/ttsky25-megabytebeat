@@ -28,6 +28,7 @@ jobs:
           use-system-verilog: false
           clock-period-ps: 488281
           delay-model: sky130
+          artifact-name: xls-generated-the42melody
 
       - uses: actions/checkout@v5
       - name: Generate Verilog for bytebeat_sierpinskiharmony
@@ -44,6 +45,7 @@ jobs:
           use-system-verilog: false
           clock-period-ps: 488281
           delay-model: sky130
+          artifact-name: xls-generated-sierpinskiharmony
 
       - name: Build GDS
         uses: TinyTapeout/tt-gds-action@ttsky25b

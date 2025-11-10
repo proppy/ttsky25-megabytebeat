@@ -41,5 +41,7 @@ Extended Play of some of the 2011's BYTEBEAT greatest hits on-a-chip:
 | Pin     | Track | Artist |
 | --------| ------------- | ------|
 | `out0`  | the 42 melody | people on irc |
+| `out1`  | fractal trees | danharaj |
+| `out2`  | untitled | droid |
 | `out3`  | a tune to share | Niklas_Roy |
 | `out7`  | sierpinski harmony | miiro |

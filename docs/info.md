@@ -9,12 +9,26 @@ You can also include images in this folder and reference them in the markdown. E
 
 ## How it works
 
-Explain how your project works
+The main module accept parameters from 4x 4-bit parameters buses and generate PWM audio signal on each output pins according to the following bytebeat formulas:
+
+| Pin     | Formula |
+| --------| --------|
+| `out0`  |  `t*(42&t>>10)` |
+| `out1`  | TBA |
+| `out2`  | TBA |
+| `out3`  | TBA |
+| `out4`  | TBA |
+| `out5`  | TBA |
+| `out6`  | TBA |
+| `out7`  | `t*5&(t>>7)|t*3&(t*4>>10)` |
+
 
 ## How to test
 
-Explain how to use your project
+- Connect a speaker to the pin you want to "play".
+- Tweak parameters pins using binary rotary switches.
 
 ## External hardware
 
-List external hardware used in your project (e.g. PMOD, LED display, etc), if any
+- [Rotaty switches](https://akizukidenshi.com/catalog/g/g102276/) w/ 16 positions.
+- Speakers or [TinyTapeout Audio PMOD](https://github.com/MichaelBell/tt-audio-pmod) if you want to hear `out7`.

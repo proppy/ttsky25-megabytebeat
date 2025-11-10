@@ -2,8 +2,8 @@
 // SPDX-License-Identifier: Apache-2.0
 
 fn the42melody(t: u32, a: u4, b: u4, c: u4, d: u4) -> u8 {
-   let ab = (a ++ b) as u32;
-   let cd = (c ++ d) as u32;
+   let ab = (b++a) as u32;
+   let cd = (d++c) as u32;
    let s = t*(ab&t>>cd);
    s as u8
 }

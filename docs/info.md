@@ -44,14 +44,13 @@ Extended Play of some of the 2011's BYTEBEAT greatest hits on-a-chip:
 
 The main module accept parameters from 4x 4-bit parameters buses and generate PWM audio signal on each output pins according to the following bytebeat formulas:
 
-| Pin     | Formula |
-| --------| --------|
-| `out0`  | `t*({a,b}&t>>{c,d})` |
-| `out1`  | `t|t%{a,b}|t%(1+{c,d})` |
-| `out2`  | `t>>a&b?t>>c:-t>>d` |
-| `out3`  | `t*(t>>9|t>>13)&16` |
-| `out7`  | `t*a&(t>>b)|t*3&(t*c>>d)` |
-
+| Pin     | Formula | Original Params |
+| --------| --------| ---------------
+| `out0`  | `t*({b,a}&t>>{d,c})` | `a=0xa,b=0x2,c=0xa,d=0x0` |
+| `out1`  | `t|t%{b,a}|t%(2+{d,c})` | `a=0xf,b=0xf,c=0xf,d=0xf` |
+| `out2`  | `t>>a&b?t>>c:-t>>d` | `a=0x6,b=0x1,c=0x5,d=0x4` |
+| `out3`  | `t*(t>>a|t>>b)&{d,c}` | `a=0x9,b=0xd,c=0x0,d=0x1` |
+| `out7`  | `t*a&(t>>b)|t*c&(t>>d)` | `a=0x5,b=0x7,c=0x4,d=0xa` |
 
 ## How to test
 

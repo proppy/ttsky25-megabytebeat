@@ -2,9 +2,9 @@
 // SPDX-License-Identifier: Apache-2.0
 
 fn fractaltrees(t: u32, a: u4, b: u4, c: u4, d: u4) -> u8 {
-   let ab = (a++b) as u32;
-   let cd = (c++d) as u32;
-   let cd_257 = cd + u32:1;
+   let ab = (b++a) as u32;
+   let cd = (d++c) as u32;
+   let cd_257 = cd + u32:2;
    let s = t|t%ab|t%cd_257;
    s as u8
 }

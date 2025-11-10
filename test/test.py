@@ -41,8 +41,8 @@ async def test_bytebeat(dut):
 
     cocotb.start_soon(write_wavefile(dut))  # collect samples "in the background"
 
-    # Set the clock to 8000hz
-    clock = Clock(dut.clk, (1.0/FREQ), unit="sec")
+    # Set the clock to 2048000hz
+    clock = Clock(dut.clk, 488281, unit="ps")
     cocotb.start_soon(clock.start())
 
     dut.ena.value = 1 # enable project

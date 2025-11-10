@@ -19,8 +19,8 @@ async def collect_samples(dut, count):
         await RisingEdge(dut.clk) # wait for first clock edge
         try:
             yield (i,
-                   dut.uo_out[0].value ? 255 : 0,
-                   dut.uo_out[7].value ? 255 : 0)
+                   dut.uo_out[0].value*255,
+                   dut.uo_out[7].value*255)
         except ValueError:
             pass  # ignore invalid samples
 

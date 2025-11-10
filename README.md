@@ -4,15 +4,10 @@
 
 - [Read the documentation for project](docs/info.md)
 
-Best-of compilation of bytebeat 2011's greatest hits on-a-chip:
+Best-of compilation of some of bytebeat 2011's greatest hits on-a-chip:
 
 | Pin     | Track | Artist |
 | --------| ------------- | ------|
 | `out0`  | the 42 melody | people on irc |
-| `out1`  | fractal trees | danharaj |
-| `out2`  | a tune to share | Niklas_Roy |
-| `out3`  | TBA | TBA |
-| `out4`  | TBA | TBA |
-| `out5`  | TBA | TBA |
-| `out6`  | TBA | TBA |
+| `out3`  | a tune to share | Niklas_Roy |
 | `out7`  | sierpinski harmony | miiro |

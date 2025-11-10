@@ -50,24 +50,7 @@ module tt_um_proppy_megabytebeat (
 				  .bytebeat_the42melody__b_r_rdy(b_rdy[0]),
 				  .bytebeat_the42melody__c_r_rdy(c_rdy[0]),
 				  .bytebeat_the42melody__d_r_rdy(d_rdy[0]));
-   bytebeat_fractaltrees bytebeat1(.clk(clk_9[8]),
-				  .reset(rst),
-				  .bytebeat_fractaltrees__a_r(a),
-				  .bytebeat_fractaltrees__a_r_vld(1'b1),
-				  .bytebeat_fractaltrees__b_r(b),
-				  .bytebeat_fractaltrees__b_r_vld(1'b1),
-				  .bytebeat_fractaltrees__c_r(c),
-				  .bytebeat_fractaltrees__c_r_vld(1'b1),
-				  .bytebeat_fractaltrees__d_r(d),
-				  .bytebeat_fractaltrees__d_r_vld(1'b1),
-				  .bytebeat_fractaltrees__output_s_rdy(1'b1),
-				  .bytebeat_fractaltrees__output_s(pcm[1]),
-				  .bytebeat_fractaltrees__output_s_vld(pcm_vld[1]),
-				  .bytebeat_fractaltrees__a_r_rdy(a_rdy[1]),
-				  .bytebeat_fractaltrees__b_r_rdy(b_rdy[1]),
-				  .bytebeat_fractaltrees__c_r_rdy(c_rdy[1]),
-				  .bytebeat_fractaltrees__d_r_rdy(d_rdy[1]));
-   bytebeat_atunetoshare bytebeat2(.clk(clk_9[8]),
+   bytebeat_atunetoshare bytebeat3(.clk(clk_9[8]),
 				  .reset(rst),
 				  .bytebeat_atunetoshare__a_r(a),
 				  .bytebeat_atunetoshare__a_r_vld(1'b1),
@@ -78,12 +61,12 @@ module tt_um_proppy_megabytebeat (
 				  .bytebeat_atunetoshare__d_r(d),
 				  .bytebeat_atunetoshare__d_r_vld(1'b1),
 				  .bytebeat_atunetoshare__output_s_rdy(1'b1),
-				  .bytebeat_atunetoshare__output_s(pcm[2]),
-				  .bytebeat_atunetoshare__output_s_vld(pcm_vld[2]),
-				  .bytebeat_atunetoshare__a_r_rdy(a_rdy[2]),
-				  .bytebeat_atunetoshare__b_r_rdy(b_rdy[2]),
-				  .bytebeat_atunetoshare__c_r_rdy(c_rdy[2]),
-				  .bytebeat_atunetoshare__d_r_rdy(d_rdy[2]));
+				  .bytebeat_atunetoshare__output_s(pcm[3]),
+				  .bytebeat_atunetoshare__output_s_vld(pcm_vld[3]),
+				  .bytebeat_atunetoshare__a_r_rdy(a_rdy[3]),
+				  .bytebeat_atunetoshare__b_r_rdy(b_rdy[3]),
+				  .bytebeat_atunetoshare__c_r_rdy(c_rdy[3]),
+				  .bytebeat_atunetoshare__d_r_rdy(d_rdy[3]));
    bytebeat_sierpinskiharmony bytebeat7(.clk(clk_9[8]),
 				  .reset(rst),
 				  .bytebeat_sierpinskiharmony__a_r(a),
@@ -112,7 +95,17 @@ module tt_um_proppy_megabytebeat (
       end
    endgenerate
    generate
-      for (genvar i = 3; i < 7; i++) begin : drive_unused_rdy_vld
+      for (genvar i = 1; i < 3; i++) begin : drive_unused_rdy_vld_0
+	 assign a_rdy[i] = 1'b0;
+	 assign b_rdy[i] = 1'b0;
+	 assign c_rdy[i] = 1'b0;
+	 assign d_rdy[i] = 1'b0;
+	 assign pcm[i] = 8'b0;
+	 assign pcm_vld[i] = 1'b0;
+      end
+   endgenerate
+   generate
+      for (genvar i = 4; i < 7; i++) begin : drive_unused_rdy_vld_1
 	 assign a_rdy[i] = 1'b0;
 	 assign b_rdy[i] = 1'b0;
 	 assign c_rdy[i] = 1'b0;

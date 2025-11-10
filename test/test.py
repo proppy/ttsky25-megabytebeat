@@ -21,7 +21,8 @@ async def collect_samples(dut, count):
             yield (i,
                    dut.tt_um_proppy_megabytebeat0.bytebeat0.bytebeat_the42melody__output_s.value.to_unsigned(),
                    dut.tt_um_proppy_megabytebeat0.bytebeat1.bytebeat_fractaltress__output_s.value.to_unsigned(),
-                   dut.tt_um_proppy_megabytebeat0.bytebeat2.bytebeat_atunetoshare__output_s.value.to_unsigned(),
+                   dut.tt_um_proppy_megabytebeat0.bytebeat2.bytebeat_untitleddroid__output_s.value.to_unsigned(),
+                   dut.tt_um_proppy_megabytebeat0.bytebeat3.bytebeat_atunetoshare__output_s.value.to_unsigned(),
                    dut.tt_um_proppy_megabytebeat0.bytebeat7.bytebeat_sierpinskiharmony__output_s.value.to_unsigned())
         except ValueError:
             pass  # ignore invalid samples
@@ -30,12 +31,13 @@ async def collect_samples(dut, count):
 async def write_wavefile(dut):
     """Write a wavefile corresponding to the outputs."""
     samples = [s async for s in collect_samples(dut, 65536*4*256)]
-    df = pd.DataFrame.from_records(samples, columns=['t', 'pcm0', 'pcm1', 'pcm7'], index=['t'])
+    df = pd.DataFrame.from_records(samples, columns=['t', 'pcm0', 'pcm1', 'pcm2', 'pcm3', 'pcm7'], index=['t'])
     df.plot()
     plt.savefig('tb_pcm.png')
     scipy.io.wavfile.write('tb_pcm0.wav', 8000, df['pcm0'][:].to_numpy(dtype=np.uint8))
     scipy.io.wavfile.write('tb_pcm1.wav', 8000, df['pcm1'][:].to_numpy(dtype=np.uint8))
-    scipy.io.wavfile.write('tb_pcm2.wav', 8000, df['pcm1'][:].to_numpy(dtype=np.uint8))
+    scipy.io.wavfile.write('tb_pcm2.wav', 8000, df['pcm2'][:].to_numpy(dtype=np.uint8))
+    scipy.io.wavfile.write('tb_pcm3.wav', 8000, df['pcm3'][:].to_numpy(dtype=np.uint8))    
     scipy.io.wavfile.write('tb_pcm7.wav', 8000, df['pcm7'][:].to_numpy(dtype=np.uint8))
 
 

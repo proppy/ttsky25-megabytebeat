@@ -13,7 +13,7 @@ project:
     - "pwm_audio.v"
     - "bytebeat_the42melody.v"
     - "bytebeat_fractaltrees.v"
-    - "bytebeat_untitleddroid.v"    
+    - "bytebeat_untitleddroid.v"
     - "bytebeat_atunetoshare.v"
     - "bytebeat_sierpinskiharmony.v"
 
@@ -30,12 +30,12 @@ pinout:
 
   # Outputs
   uo[0]: "track #0 PWM output"
-  uo[1]: "track #1 PWM output"
-  uo[2]: "track #2 PWM output"
+  uo[1]: "N/A"
+  uo[2]: "N/A"
   uo[3]: "track #3 PWM output"
-  uo[4]: "track #4 PWM output"
-  uo[5]: "track #5 PWM output"
-  uo[6]: "track #6 PWM output"
+  uo[4]: "N/A"
+  uo[5]: "N/A"
+  uo[6]: "N/A"
   uo[7]: "track #7 PWM output"
 
   # Bidirectional pins

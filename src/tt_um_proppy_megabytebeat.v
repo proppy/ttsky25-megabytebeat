@@ -82,7 +82,7 @@ module tt_um_proppy_megabytebeat (
    assign uio_out = 8'b00000000; // unused by keep yosys happy.
 
    generate
-      for (genvar i = i; i < 7; i++) begin: unused
+      for (genvar i = i; i < 7; i++) begin
 	 assign a_rdy[i] = 1'b0;
 	 assign b_rdy[i] = 1'b0;
 	 assign c_rdy[i] = 1'b0;

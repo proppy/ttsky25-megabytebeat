@@ -69,6 +69,21 @@ jobs:
           clock-period-ps: 488281
           delay-model: sky130
           artifact-name: xls-generated-untitleddroid
+      - name: Generate Verilog for bytebeat_atunetoshare
+        uses: ./.github/actions/xls-action
+        with:
+          xls-version: v0.0.0-8961-gf509bf088
+          dslx-path: src/bytebeat_atunetoshare.x
+          dslx-top: bytebeat_atunetoshare
+          ir-path: src/bytebeat_atunetoshare.ir
+          opt-ir-path: src/bytebeat_atunetoshare.opt.ir
+          verilog-path: src/bytebeat_atunetoshare.v
+          verilog-module-name: bytebeat_atunetoshare
+          verilog-reset-signal-name: reset
+          use-system-verilog: false
+          clock-period-ps: 488281
+          delay-model: sky130
+          artifact-name: xls-generated-atunetoshare
       - name: Generate Verilog for bytebeat_sierpinskiharmony
         uses: ./.github/actions/xls-action
         with:

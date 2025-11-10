@@ -83,6 +83,7 @@ module tt_um_proppy_megabytebeat (
 	 assign b_rdy[i] = 1'b0;
 	 assign c_rdy[i] = 1'b0;
 	 assign d_rdy[i] = 1'b0;
+	 assign pcm[i] = 8'b0;
 	 assign pcm_vld[i] = 1'b0;
       end
    endgenerate

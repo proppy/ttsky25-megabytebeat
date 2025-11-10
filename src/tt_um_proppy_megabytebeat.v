@@ -15,25 +15,25 @@ module tt_um_proppy_megabytebeat (
 );
    wire						rst = !rst_n;
    wire [3:0]					a = ui_in[3:0];
-   wire						a_rdy[7:0];
+   wire						a_rdy[8];
    wire [3:0]					b = ui_in[7:4];
-   wire						b_rdy[7:0];
+   wire						b_rdy[8];
    wire [3:0]					c = uio_in[3:0];
-   wire						c_rdy[7:0];
+   wire						c_rdy[8];
    wire [3:0]					d = uio_in[7:4];
-   wire						d_rdy[7:0];
+   wire						d_rdy[8];
    wire [7:0]					pcm[8];
-   wire						pcm_vld[7:0];
+   wire						pcm_vld[8];
 
-   reg [8:0]					clk_8;
+   reg [8:0]					clk_9;
    always @(posedge clk) begin
-      if (!rst_n) clk_8 <= 0;
+      if (!rst_n) clk_9 <= 0;
       else begin
-         clk_8 <= clk_8 + 1;
+         clk_9 <= clk_9 + 1;
       end
    end
 
-   bytebeat_the42melody bytebeat0(.clk(clk_8),
+   bytebeat_the42melody bytebeat0(.clk(clk_9[8]),
 				  .reset(rst),
 				  .bytebeat_the42melody__a_r(a),
 				  .bytebeat_the42melody__a_r_vld(1'b1),
@@ -50,7 +50,7 @@ module tt_um_proppy_megabytebeat (
 				  .bytebeat_the42melody__b_r_rdy(b_rdy[0]),
 				  .bytebeat_the42melody__c_r_rdy(c_rdy[0]),
 				  .bytebeat_the42melody__d_r_rdy(d_rdy[0]));
-   bytebeat_sierpinskiharmony bytebeat7(.clk(clk_8),
+   bytebeat_sierpinskiharmony bytebeat7(.clk(clk_9[8]),
 				  .reset(rst),
 				  .bytebeat_sierpinskiharmony__a_r(a),
 				  .bytebeat_sierpinskiharmony__a_r_vld(1'b1),
@@ -75,6 +75,21 @@ module tt_um_proppy_megabytebeat (
 			.rst_n(rst_n),
 			.sample(pcm[i]),
 			.pwm(uo_out[i]));
+      end
+   endgenerate
+   generate
+      for (genvar i = 1; i < 7; i++) begin : drive_unused_rdy_vld
+	 assign a_rdy[i] = 1'b0;
+	 assign b_rdy[i] = 1'b0;
+	 assign c_rdy[i] = 1'b0;
+	 assign d_rdy[i] = 1'b0;
+	 assign pcm_vld[i] = 1'b0;
+      end
+   endgenerate
+   generate
+      for (genvar i = 0; i < 8; i++) begin : use_unused_rdy_vld
+	 wire _unused_rdy = &{a_rdy[i], b_rdy[i], c_rdy[i], d_rdy[i], 1'b0};
+	 wire _unused_vld = &{pcm_vld[i], 1'b0};
       end
    endgenerate
    

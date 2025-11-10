@@ -39,21 +39,6 @@ jobs:
           clock-period-ps: 488281
           delay-model: sky130
           artifact-name: xls-generated-the42melody
-      - name: Generate Verilog for bytebeat_sierpinskiharmony
-        uses: ./.github/actions/xls-action
-        with:
-          xls-version: v0.0.0-8961-gf509bf088
-          dslx-path: src/bytebeat_sierpinskiharmony.x
-          dslx-top: bytebeat_sierpinskiharmony
-          ir-path: src/bytebeat_sierpinskiharmony.ir
-          opt-ir-path: src/bytebeat_sierpinskiharmony.opt.ir
-          verilog-path: src/bytebeat_sierpinskiharmony.v
-          verilog-module-name: bytebeat_sierpinskiharmony
-          verilog-reset-signal-name: reset
-          use-system-verilog: false
-          clock-period-ps: 488281
-          delay-model: sky130
-          artifact-name: xls-generated-sierpinskiharmony
       - name: Generate Verilog for bytebeat_fractaltrees
         uses: ./.github/actions/xls-action
         with:
@@ -69,6 +54,21 @@ jobs:
           clock-period-ps: 488281
           delay-model: sky130
           artifact-name: xls-generated-fractaltrees
+      - name: Generate Verilog for bytebeat_sierpinskiharmony
+        uses: ./.github/actions/xls-action
+        with:
+          xls-version: v0.0.0-8961-gf509bf088
+          dslx-path: src/bytebeat_sierpinskiharmony.x
+          dslx-top: bytebeat_sierpinskiharmony
+          ir-path: src/bytebeat_sierpinskiharmony.ir
+          opt-ir-path: src/bytebeat_sierpinskiharmony.opt.ir
+          verilog-path: src/bytebeat_sierpinskiharmony.v
+          verilog-module-name: bytebeat_sierpinskiharmony
+          verilog-reset-signal-name: reset
+          use-system-verilog: false
+          clock-period-ps: 488281
+          delay-model: sky130
+          artifact-name: xls-generated-sierpinskiharmony
 
       - name: Run tests
         run: |

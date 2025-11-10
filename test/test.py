@@ -17,8 +17,6 @@ FREQ = 8000 * 256
 async def test_bytebeat(dut):
     dut._log.info("Start")
 
-    cocotb.start_soon(write_wavefile(dut))  # collect samples "in the background"
-
     # Set the clock to ~2048000hz (8000 * 256)
     clock = Clock(dut.clk, 488280, unit="ps")
     cocotb.start_soon(clock.start())

@@ -54,6 +54,21 @@ jobs:
           clock-period-ps: 488281
           delay-model: sky130
           artifact-name: xls-generated-sierpinskiharmony
+      - name: Generate Verilog for bytebeat_fractaltrees
+        uses: ./.github/actions/xls-action
+        with:
+          xls-version: v0.0.0-8961-gf509bf088
+          dslx-path: src/bytebeat_fractaltrees.x
+          dslx-top: bytebeat_fractaltrees
+          ir-path: src/bytebeat_fractaltrees.ir
+          opt-ir-path: src/bytebeat_fractaltrees.opt.ir
+          verilog-path: src/bytebeat_fractaltrees.v
+          verilog-module-name: bytebeat_fractaltrees
+          verilog-reset-signal-name: reset
+          use-system-verilog: false
+          clock-period-ps: 488281
+          delay-model: sky130
+          artifact-name: xls-generated-fractaltrees
 
       - name: Run tests
         run: |

@@ -1,9 +1,12 @@
-// Copyright 2023 Google LLC.
+// Copyright 2025 Google LLC.
 // SPDX-License-Identifier: Apache-2.0
 
-fn sierpinskiharmony(t: u32, a: u4, b: u4, c: u4, d: u4) -> u8 {
-    let s = ((t*a as u32)&(t>>b as u32))|((t*c as u32)&(t>>d as u32));
-    s as u8
+fn fractaltrees(t: u32, a: u4, b: u4, c: u4, d: u4) -> u8 {
+   let ab = (a++b) as u32;
+   let cd = (c++d) as u32;
+   let cd_257 = cd + u32:1;
+   let s = t|t%ab|t%cd_257;
+   s as u8
 }
 
 struct ByteBeatState {
@@ -14,7 +17,7 @@ struct ByteBeatState {
   t: u32,
 }
 
-proc bytebeat_sierpinskiharmony {
+proc bytebeat_fractaltrees {
   a_r: chan<u4> in;
   b_r: chan<u4> in;
   c_r: chan<u4> in;
@@ -37,14 +40,14 @@ proc bytebeat_sierpinskiharmony {
     let (tok_d, d, _) = recv_non_blocking(tok, d_r, state.d);
     let tok = join(tok_a, tok_b, tok_c, tok_d);
     let t = state.t;
-    let s = sierpinskiharmony(t, a, b, c, d);
+    let s = fractaltrees(t, a, b, c, d);
     send(tok, output_s, s as u8);
     ByteBeatState{a: a, b: b, c: c, d: d, t: t + u32:1}
   }
 }
 
 #[test_proc]
-proc bytebeat_sierpinskiharmony_test {
+proc bytebeat_fractaltrees_test {
   terminator: chan<bool> out;
   a_s: chan<u4> out;
   a_r: chan<u4> in;
@@ -67,7 +70,7 @@ proc bytebeat_sierpinskiharmony_test {
     let (c_s, c_r) = chan<u4>("c");
     let (d_s, d_r) = chan<u4>("d");
     let (output_s, output_r) = chan<u8>("output");
-    spawn bytebeat_sierpinskiharmony(a_r, b_r, c_r, d_r, output_s);
+    spawn bytebeat_fractaltrees(a_r, b_r, c_r, d_r, output_s);
     (t, a_s, a_r, b_s, b_r, c_s, c_r, d_s, d_r, output_s, output_r)
   }
 

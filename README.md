@@ -9,7 +9,7 @@ Best-of compilation of bytebeat 2011's greatest hits on-a-chip:
 | Pin     | Track | Artist |
 | --------| ------------- | ------|
 | `out0`  | the 42 melody | people on irc |
-| `out1`  | TBA | TBA |
+| `out1`  | fractal trees | danharaj |
 | `out2`  | TBA | TBA |
 | `out3`  | TBA | TBA |
 | `out4`  | TBA | TBA |

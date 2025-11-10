@@ -44,7 +44,7 @@ proc bytebeat_the42melody {
 }
 
 #[test_proc]
-proc bytebeat_test {
+proc bytebeat_the42melody_test {
   terminator: chan<bool> out;
   a_s: chan<u4> out;
   a_r: chan<u4> in;

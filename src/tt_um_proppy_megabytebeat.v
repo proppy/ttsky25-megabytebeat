@@ -78,7 +78,7 @@ module tt_um_proppy_megabytebeat (
 				  .bytebeat_untitleddroid__d_r(d),
 				  .bytebeat_untitleddroid__d_r_vld(1'b1),
 				  .bytebeat_untitleddroid__output_s_rdy(1'b1),
-				  .bytebeat_untitleddroid__output_s(pcm[0]),
+				  .bytebeat_untitleddroid__output_s(pcm[2]),
 				  .bytebeat_untitleddroid__output_s_vld(pcm_vld[2]),
 				  .bytebeat_untitleddroid__a_r_rdy(a_rdy[2]),
 				  .bytebeat_untitleddroid__b_r_rdy(b_rdy[2]),

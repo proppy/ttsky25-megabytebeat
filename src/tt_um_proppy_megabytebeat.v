@@ -67,7 +67,7 @@ module tt_um_proppy_megabytebeat (
 				  .bytebeat_fractaltrees__b_r_rdy(b_rdy[1]),
 				  .bytebeat_fractaltrees__c_r_rdy(c_rdy[1]),
 				  .bytebeat_fractaltrees__d_r_rdy(d_rdy[1]));
-   bytebeat_untitleddroid bytebeat1(.clk(clk_9[8]),
+   bytebeat_untitleddroid bytebeat2(.clk(clk_9[8]),
 				  .reset(rst),
 				  .bytebeat_untitleddroid__a_r(a),
 				  .bytebeat_untitleddroid__a_r_vld(1'b1),

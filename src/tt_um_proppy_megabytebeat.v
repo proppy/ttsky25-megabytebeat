@@ -63,15 +63,25 @@ module tt_um_proppy_megabytebeat (
 
    generate
       for (genvar i = 0; i < 8; i++) begin : pwm_audio
-	 pwm_audio pwm(.clk(clk),
-		       .rst_n(rst_n),
-		       .sample(pcm[i]),
-		       .pwm(uo_out[i]));
+	 pwm_audio pwm0(.clk(clk),
+			.rst_n(rst_n),
+			.sample(pcm[i]),
+			.pwm(uo_out[i]));
       end
    endgenerate
    
    assign uio_oe = 8'b00000000;  // set uio as inputs.
    assign uio_out = 8'b00000000; // unused by keep yosys happy.
+
+   generate
+      for (genvar i = i; i < 7; i++) begin: unused
+	 a_rdy[i] = 1'b0;
+	 b_rdy[i] = 1'b0;
+	 c_rdy[i] = 1'b0;
+	 d_rdy[i] = 1'b0;
+	 pcm_vld[i] = 1'b0;
+      end
+   endgenerate
 
    wire _unused = &{ena, 1'b0};
 

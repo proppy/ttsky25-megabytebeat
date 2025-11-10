@@ -74,7 +74,6 @@ module tt_um_proppy_megabytebeat (
 
    assign uio_oe = 8'b00000000;  // set uio as inputs.
    assign uio_out = 8'b00000000; // unused by keep yosys happy.
-   assign uo_out = pcm; // feed pcm samples to output pins.
 
    wire _unused = &{ena, 1'b0};
 

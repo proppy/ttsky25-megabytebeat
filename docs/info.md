@@ -15,7 +15,7 @@ The main module accept parameters from 4x 4-bit parameters buses and generate PW
 | --------| --------|
 | `out0`  | `t*({a,b}&t>>{c,d})` |
 | `out1`  | `t|t%{a,b}|t%(1+{c,d})` |
-| `out2`  | TBA |
+| `out2`  | `t>>a&b?t>>c:-t>>d` |
 | `out3`  | TBA |
 | `out4`  | TBA |
 | `out5`  | TBA |

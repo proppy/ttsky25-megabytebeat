@@ -67,6 +67,23 @@ module tt_um_proppy_megabytebeat (
 				  .bytebeat_fractaltrees__b_r_rdy(b_rdy[0]),
 				  .bytebeat_fractaltrees__c_r_rdy(c_rdy[0]),
 				  .bytebeat_fractaltrees__d_r_rdy(d_rdy[0]));
+   bytebeat_fractaltrees bytebeat2(.clk(clk_9[8]),
+				  .reset(rst),
+				  .bytebeat_untitleddroid__a_r(a),
+				  .bytebeat_untitleddroid__a_r_vld(1'b1),
+				  .bytebeat_untitleddroid__b_r(b),
+				  .bytebeat_untitleddroid__b_r_vld(1'b1),
+				  .bytebeat_untitleddroid__c_r(c),
+				  .bytebeat_untitleddroid__c_r_vld(1'b1),
+				  .bytebeat_untitleddroid__d_r(d),
+				  .bytebeat_untitleddroid__d_r_vld(1'b1),
+				  .bytebeat_untitleddroid__output_s_rdy(1'b1),
+				  .bytebeat_untitleddroid__output_s(pcm[0]),
+				  .bytebeat_untitleddroid__output_s_vld(pcm_vld[0]),
+				  .bytebeat_untitleddroid__a_r_rdy(a_rdy[0]),
+				  .bytebeat_untitleddroid__b_r_rdy(b_rdy[0]),
+				  .bytebeat_untitleddroid__c_r_rdy(c_rdy[0]),
+				  .bytebeat_untitleddroid__d_r_rdy(d_rdy[0]));
    bytebeat_sierpinskiharmony bytebeat7(.clk(clk_9[8]),
 				  .reset(rst),
 				  .bytebeat_sierpinskiharmony__a_r(a),
@@ -95,7 +112,7 @@ module tt_um_proppy_megabytebeat (
       end
    endgenerate
    generate
-      for (genvar i = 2; i < 7; i++) begin : drive_unused_rdy_vld
+      for (genvar i = 3; i < 7; i++) begin : drive_unused_rdy_vld
 	 assign a_rdy[i] = 1'b0;
 	 assign b_rdy[i] = 1'b0;
 	 assign c_rdy[i] = 1'b0;

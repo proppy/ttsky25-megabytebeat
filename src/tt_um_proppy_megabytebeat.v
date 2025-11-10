@@ -15,15 +15,15 @@ module tt_um_proppy_megabytebeat (
 );
    wire						rst = !rst_n;
    wire [3:0]					a = ui_in[3:0];
-   wire						a_rdy[8];
+   wire						a_rdy[7:0];
    wire [3:0]					b = ui_in[7:4];
-   wire						b_rdy[8];
+   wire						b_rdy[7:0];
    wire [3:0]					c = uio_in[3:0];
-   wire						c_rdy[8];
+   wire						c_rdy[7:0];
    wire [3:0]					d = uio_in[7:4];
-   wire						d_rdy[8];
+   wire						d_rdy[7:0];
    wire [7:0]					pcm[8];
-   wire						pcm_vld[8];
+   wire						pcm_vld[7:0];
 
    bytebeat_the42melody bytebeat0(.clk(clk),
 				  .reset(rst),
@@ -61,17 +61,15 @@ module tt_um_proppy_megabytebeat (
 				  .bytebeat_sierpinskiharmony__d_r_rdy(d_rdy[7]));
    
 
-   pwm_audio pwm0(.clk(clk),
-		  .rst_n(rst_n),
-		  .sample(pcm[0]),
-		  .pwm(uo_out[0]));
-   pwm_audio pwm7(.clk(clk),
-		  .rst_n(rst_n),
-		  .sample(pcm[7]),
-		  .pwm(uo_out[7]));
+   generate
+      for (genvar i = 0; i < 8; i++) begin : pwm_audio
+	 pwm_audio pwm(.clk(clk),
+		       .rst_n(rst_n),
+		       .sample(pcm[i]),
+		       .pwm(uo_out[i]));
+      end
+   endgenerate
    
-   
-
    assign uio_oe = 8'b00000000;  // set uio as inputs.
    assign uio_out = 8'b00000000; // unused by keep yosys happy.
 

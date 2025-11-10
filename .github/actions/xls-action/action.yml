@@ -1,0 +1,81 @@
+name: XLS
+description: generate (System)Verilog from DSLX.
+
+inputs:
+  xls-version:
+    description: version of the XLS release to use.
+    required: true
+    type: string
+  dslx-path:
+    description: path to the input DSLX path.
+    required: true
+    type: string
+  dslx-top:
+    description: name of the DSLX top-level proc or function.
+    required: true
+    type: string
+  ir-path:
+    description: path to the intermediate XLS IR file.
+    required: true
+    type: string
+  opt-ir-path:
+    description: path to the optimized XLS IR fil.e
+    required: true
+    type: string
+  verilog-path:
+    description: path to the output Verilog path.
+    required: true
+    type: string
+  verilog-module-name:
+    description: name of the generated (System)Verilog module.
+    required: true
+    type: string
+  verilog-reset-signal-name:
+    description: name of the verilog reset signal.
+    required: true
+    type: string
+  use-system-verilog:
+    description: whether or not to generate SystemVerilog.
+    required: true
+    type: boolean
+  clock-period-ps:
+    description: desired clock period in picoseconds.
+    required: true
+    type: string
+  delay-model:
+    description: model to use delay estimation.
+    required: true
+    type: string
+  verilog-reset-signal:
+    description: name of the verilog reset signal.
+    required: true
+    type: string
+
+runs:
+  using: "composite"
+  steps:
+    - name: install XLS
+      run: |
+        curl --show-error --silent -L https://github.com/google/xls/releases/download/${{ inputs.xls-version }}/xls-${{ inputs.xls-version }}-linux-x64.tar.gz | tar xvzf -
+        echo "$(readlink -f xls-${{ inputs.xls-version }}-linux-x64)" >> "$GITHUB_PATH"
+      shell: bash
+    - name: convert DSLX to XLS ir
+      run: |
+        ir_converter_main --top=${{ inputs.dslx-top}} ${{ inputs.dslx-path }} > ${{ inputs.ir-path }}
+      shell: bash
+    - name: optimize XLS IR
+      run: |
+        opt_main ${{ inputs.ir-path }} > ${{ inputs.opt-ir-path }}
+      shell: bash
+    - name: generate Verilog
+      run: |
+        codegen_main --module_name=${{ inputs.verilog-module-name }} --use_system_verilog=${{ inputs.use-system-verilog }} --clock_period_ps=${{ inputs.clock-period-ps }} --delay_model=${{ inputs.delay-model }} --reset=${{ inputs.verilog-reset-signal-name }} ${{ inputs.opt-ir-path }} > ${{ inputs.verilog-path }}
+      shell: bash
+    - name: upload XLS artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: xls-generated
+        path: |
+          ${{ inputs.ir-path }}
+          ${{ inputs.opt-ir-path }}
+          ${{ inputs.verilog-path }}

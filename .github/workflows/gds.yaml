@@ -13,6 +13,38 @@ jobs:
         with:
           submodules: recursive
 
+      - uses: actions/checkout@v5
+      - name: Generate Verilog for bytebeat_the42melody
+        uses: ./.github/actions/xls-action
+        with:
+          xls-version: v0.0.0-8961-gf509bf088
+          dslx-path: src/bytebeat_the42melody.x
+          dslx-top: bytebeat_the42melody
+          ir-path: src/bytebeat_the42melody.ir
+          opt-ir-path: src/bytebeat_the42melody.opt.ir
+          verilog-path: src/bytebeat_the42melody.v
+          verilog-module-name: bytebeat_the42melody
+          verilog-reset-signal-name: reset
+          use-system-verilog: false
+          clock-period-ps: 488281.25
+          delay-model: sky130
+
+      - uses: actions/checkout@v5
+      - name: Generate Verilog for bytebeat_sierpinskiharmony
+        uses: ./.github/actions/xls-action
+        with:
+          xls-version: v0.0.0-8961-gf509bf088
+          dslx-path: src/bytebeat_sierpinskiharmony.x
+          dslx-top: bytebeat_sierpinskiharmony
+          ir-path: src/bytebeat_sierpinskiharmony.ir
+          opt-ir-path: src/bytebeat_sierpinskiharmony.opt.ir
+          verilog-path: src/bytebeat_sierpinskiharmony.v
+          verilog-module-name: bytebeat_sierpinskiharmony
+          verilog-reset-signal-name: reset
+          use-system-verilog: false
+          clock-period-ps: 488281.25
+          delay-model: sky130
+
       - name: Build GDS
         uses: TinyTapeout/tt-gds-action@ttsky25b
         with:

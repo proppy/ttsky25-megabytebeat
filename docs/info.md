@@ -1,11 +1,42 @@
-<!---
+```
+░█▀▄░█░█░▀█▀░█▀▀░█▀▄░█▀▀░█▀█░▀█▀░▀░█▀▀
+░█▀▄░░█░░░█░░█▀▀░█▀▄░█▀▀░█▀█░░█░░░░▀▀█
+░▀▀░░░▀░░░▀░░▀▀▀░▀▀░░▀▀▀░▀░▀░░▀░░░░▀▀▀
+       • ▌ ▄ ·. ▄▄▄ . ▄▄ •  ▄▄▄· 
+       ·██ ▐███▪▀▄.▀·▐█ ▀ ▪▐█ ▀█ 
+       ▐█ ▌▐▌▐█·▐▀▀▪▄▄█ ▀█▄▄█▀▀█ 
+       ██ ██▌▐█▌▐█▄▄▌▐█▄▪▐█▐█ ▪▐▌
+       ▀▀  █▪▀▀▀ ▀▀▀ ·▀▀▀▀  ▀  ▀ 
+ █████   █████ █████ ███████████  █████████ 
+░░███   ░░███ ░░███ ░█░░░███░░░█ ███░░░░░███
+ ░███    ░███  ░███ ░   ░███  ░ ░███    ░░░ 
+ ░███████████  ░███     ░███    ░░█████████ 
+ ░███░░░░░███  ░███     ░███     ░░░░░░░░███
+ ░███    ░███  ░███     ░███     ███    ░███
+ █████   █████ █████    █████   ░░█████████ 
+░░░░░   ░░░░░ ░░░░░    ░░░░░     ░░░░░░░░░  
+      ,----,     ,----..        ,---,     ,---, 
+    .'   .' \   /   /   \    ,`--.' |  ,`--.' | 
+  ,----,'    | /   .     :  /    /  : /    /  : 
+  |    :  .  ;.   /   ;.  \:    |.' ':    |.' ' 
+  ;    |.'  /.   ;   /  ` ;`----':  |`----':  | 
+  `----'/  ; ;   |  ; \ ; |   '   ' ;   '   ' ; 
+    /  ;  /  |   :  | ; | '   |   | |   |   | | 
+   ;  /  /-, .   |  ' ' ' :   '   : ;   '   : ; 
+  /  /  /.`| '   ;  \; /  |   |   | '   |   | ' 
+./__;      :  \   \  ',  /    '   : |   '   : | 
+|   :    .'    ;   :    /     ;   |.'   ;   |.' 
+;   | .'        \   \ .'      '---'     '---'   
+`---'            `---`                          
+```
 
-This file is used to generate your project datasheet. Please fill in the information below and delete any unused
-sections.
+Extended Play of some of the 2011's BYTEBEAT greatest hits on-a-chip:
 
-You can also include images in this folder and reference them in the markdown. Each image must be less than
-512 kb in size, and the combined size of all images must be less than 1 MB.
--->
+| Pin     | Track | Artist |
+| --------| ------------- | ------|
+| `out0`  | the 42 melody | people on irc |
+| `out3`  | a tune to share | Niklas_Roy |
+| `out7`  | sierpinski harmony | miiro |
 
 ## How it works
 

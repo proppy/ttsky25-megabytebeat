@@ -129,16 +129,6 @@ module tt_um_proppy_megabytebeat (
       end
    endgenerate
    generate
-      for (genvar i = 1; i < 3; i++) begin : drive_unused_rdy_vld_0
-	 assign a_rdy[i] = 1'b0;
-	 assign b_rdy[i] = 1'b0;
-	 assign c_rdy[i] = 1'b0;
-	 assign d_rdy[i] = 1'b0;
-	 assign pcm[i] = 8'b0;
-	 assign pcm_vld[i] = 1'b0;
-      end
-   endgenerate
-   generate
       for (genvar i = 4; i < 7; i++) begin : drive_unused_rdy_vld_1
 	 assign a_rdy[i] = 1'b0;
 	 assign b_rdy[i] = 1'b0;

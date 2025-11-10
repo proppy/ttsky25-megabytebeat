@@ -13,14 +13,14 @@ The main module accept parameters from 4x 4-bit parameters buses and generate PW
 
 | Pin     | Formula |
 | --------| --------|
-| `out0`  |  `t*(42&t>>10)` |
-| `out1`  | TBA |
+| `out0`  | `t*({a,b}&t>>{c,d})` |
+| `out1`  | `t|t%{a,b}|t%(1+{c,d})` |
 | `out2`  | TBA |
 | `out3`  | TBA |
 | `out4`  | TBA |
 | `out5`  | TBA |
 | `out6`  | TBA |
-| `out7`  | `t*5&(t>>7)|t*3&(t*4>>10)` |
+| `out7`  | `t*a&(t>>b)|t*3&(t*c>>d)` |
 
 
 ## How to test

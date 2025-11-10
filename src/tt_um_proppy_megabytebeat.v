@@ -25,7 +25,15 @@ module tt_um_proppy_megabytebeat (
    wire [7:0]					pcm[8];
    wire						pcm_vld[7:0];
 
-   bytebeat_the42melody bytebeat0(.clk(clk),
+   reg [8:0]					clk_8;
+   always @(posedge clk) begin
+      if (!rst_n) clk_8 <= 0;
+      else begin
+         clk_8 <= clk_8 + 1;
+      end
+   end
+
+   bytebeat_the42melody bytebeat0(.clk(clk_8),
 				  .reset(rst),
 				  .bytebeat_the42melody__a_r(a),
 				  .bytebeat_the42melody__a_r_vld(1'b1),
@@ -42,7 +50,7 @@ module tt_um_proppy_megabytebeat (
 				  .bytebeat_the42melody__b_r_rdy(b_rdy[0]),
 				  .bytebeat_the42melody__c_r_rdy(c_rdy[0]),
 				  .bytebeat_the42melody__d_r_rdy(d_rdy[0]));
-   bytebeat_sierpinskiharmony bytebeat7(.clk(clk),
+   bytebeat_sierpinskiharmony bytebeat7(.clk(clk_8),
 				  .reset(rst),
 				  .bytebeat_sierpinskiharmony__a_r(a),
 				  .bytebeat_sierpinskiharmony__a_r_vld(1'b1),

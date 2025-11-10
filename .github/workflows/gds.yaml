@@ -29,8 +29,6 @@ jobs:
           clock-period-ps: 488281
           delay-model: sky130
           artifact-name: xls-generated-the42melody
-
-      - uses: actions/checkout@v5
       - name: Generate Verilog for bytebeat_sierpinskiharmony
         uses: ./.github/actions/xls-action
         with:

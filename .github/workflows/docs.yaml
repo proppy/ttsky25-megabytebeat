@@ -14,23 +14,21 @@ jobs:
           submodules: recursive
 
       - uses: actions/checkout@v5
-      - name: Generate Verilog from DSLX
+      - name: Generate Verilog for bytebeat_the42melody
         uses: ./.github/actions/xls-action
         with:
           xls-version: v0.0.0-8961-gf509bf088
-          dslx-path: src/bytebeat.x
-          dslx-top: bytebeat
-          ir-path: src/bytebeat.ir
-          opt-ir-path: src/bytebeat.opt.ir
-          verilog-path: src/bytebeat.v
-          verilog-module-name: bytebeat
+          dslx-path: src/bytebeat_the42melody.x
+          dslx-top: bytebeat_the42melody
+          ir-path: src/bytebeat_the42melody.ir
+          opt-ir-path: src/bytebeat_the42melody.opt.ir
+          verilog-path: src/bytebeat_the42melody.v
+          verilog-module-name: bytebeat_the42melody
           verilog-reset-signal-name: reset
           use-system-verilog: false
           clock-period-ps: 488281
           delay-model: sky130
           artifact-name: xls-generated-the42melody
-
-      - uses: actions/checkout@v5
       - name: Generate Verilog for bytebeat_sierpinskiharmony
         uses: ./.github/actions/xls-action
         with:

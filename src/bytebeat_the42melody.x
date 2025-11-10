@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 fn the42melody(t: u32, a: u4, b: u4, c: u4, d: u4) -> u8 {
-    t*((a as u32)&t>>(b as u32)))
+    t*((a as u32)&t>>(b as u32)) as u8
 }
 
 struct ByteBeatState {

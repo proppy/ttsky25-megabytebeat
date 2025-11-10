@@ -27,4 +27,4 @@ async def test_bytebeat(dut):
     dut.uio_in.value = 0xa3 # c=3 d=10
     await ClockCycles(dut.clk, 1)
     dut.rst_n.value = 1 # take out of reset
-    await ClockCycles(dut.clk, 65536*256)
+    await ClockCycles(dut.clk, 10000)

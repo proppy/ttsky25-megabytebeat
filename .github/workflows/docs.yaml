@@ -42,7 +42,7 @@ jobs:
           verilog-module-name: bytebeat_sierpinskiharmony
           verilog-reset-signal-name: reset
           use-system-verilog: false
-          clock-period-ps: 488281.25
+          clock-period-ps: 488281
           delay-model: sky130
 
       - name: Build docs

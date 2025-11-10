@@ -83,11 +83,11 @@ module tt_um_proppy_megabytebeat (
 
    generate
       for (genvar i = i; i < 7; i++) begin: unused
-	 a_rdy[i] = 1'b0;
-	 b_rdy[i] = 1'b0;
-	 c_rdy[i] = 1'b0;
-	 d_rdy[i] = 1'b0;
-	 pcm_vld[i] = 1'b0;
+	 assign a_rdy[i] = 1'b0;
+	 assign b_rdy[i] = 1'b0;
+	 assign c_rdy[i] = 1'b0;
+	 assign d_rdy[i] = 1'b0;
+	 assign pcm_vld[i] = 1'b0;
       end
    endgenerate
 

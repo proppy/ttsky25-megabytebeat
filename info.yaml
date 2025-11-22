@@ -30,8 +30,8 @@ pinout:
 
   # Outputs
   uo[0]: "track #0 PWM output"
-  uo[1]: "N/A"
-  uo[2]: "N/A"
+  uo[1]: "track #1 PWM output"
+  uo[2]: "track #2 PWM output"
   uo[3]: "track #3 PWM output"
   uo[4]: "N/A"
   uo[5]: "N/A"
